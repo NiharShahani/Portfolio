@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bambai Meri Jaan | Nihar Shahani</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Inter', sans-serif; }
+        @media (min-width: 768px) { body { cursor: none; } }
+        .cursor-dot, .cursor-outline {
+            position: fixed; top: 0; left: 0; pointer-events: none; z-index: 20000;
+            opacity: 0; transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .cursor-dot { width: 6px; height: 6px; background: white; border-radius: 999px; }
+        .cursor-outline { width: 32px; height: 32px; border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 999px; }
+        .cursor-outline.hover-lens {
+            width: 80px; height: 80px;
+            background-color: rgba(255, 255, 255, 0.15); backdrop-filter: blur(6px);
+            border-color: rgba(255, 255, 255, 0.85);
+        }
+        .cursor-outline.hover-link { width: 46px; height: 46px; }
+        img { opacity: 0; transition: opacity 0.5s ease; }
+        img.loaded { opacity: 1; }
+        .gallery-image { transition: transform 0.7s ease; }
+        .gallery-card:hover .gallery-image { transform: scale(1.015); }
+        ::-webkit-scrollbar { width: 0; background: transparent; }
+    </style>
+</head>
+<body class="bg-[#0a0a0a] text-neutral-100 font-sans antialiased selection:bg-amber-400 selection:text-black">
+    <div class="cursor-dot hidden md:block"></div>
+    <div class="cursor-outline hidden md:block"></div>
+
+    <header class="fixed top-0 w-full z-50 mix-blend-difference px-6 py-8">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            <a href="index.html" class="text-sm font-medium tracking-[0.25em] uppercase text-white">NS</a>
+            <nav class="hidden md:flex space-x-10 text-[10px] font-medium tracking-[0.25em] uppercase">
+                <a href="index.html#collections" class="text-white hover:text-amber-500 transition-colors">Collections</a>
+                <a href="collection-nature.html" class="text-white hover:text-amber-500 transition-colors">Nature</a>
+                <a href="collection-events.html" class="text-white hover:text-amber-500 transition-colors">Events</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="min-h-[88vh] px-6 pt-36 pb-20 flex items-end relative overflow-hidden border-b border-neutral-900">
+            <div class="absolute inset-0 -z-10 opacity-35">
+                <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779641537/IMG_3889_1_eimi9z.jpg" alt="" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/70 to-[#0a0a0a]/20"></div>
+            </div>
+            <div class="max-w-7xl mx-auto w-full">
+                <a href="index.html#collections" class="inline-block mb-10 text-[10px] uppercase tracking-[0.28em] text-neutral-500 hover:text-amber-500 transition-colors">Back to portfolio</a>
+                <p class="text-[10px] uppercase tracking-[0.35em] text-amber-500 mb-5">Streets & Portraits</p>
+                <h1 class="font-serif text-5xl md:text-8xl leading-[0.95] text-white">Bambai<br><span class="italic text-neutral-400">Meri Jaan</span></h1>
+                <p class="mt-8 max-w-lg text-sm md:text-base font-light leading-relaxed text-neutral-400">
+                    Street-led frames of Mumbai, built around movement, intimacy, and the city in between moments.
+                </p>
+            </div>
+        </section>
+
+        <section class="px-6 py-28">
+            <div class="max-w-7xl mx-auto">
+                <div class="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                    <h2 class="font-serif text-3xl md:text-5xl text-white">The Series</h2>
+                    <p class="text-[10px] uppercase tracking-[0.28em] text-neutral-500">Click image to view</p>
+                </div>
+
+                <div class="columns-1 md:columns-2 gap-8 space-y-8">
+                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1779641537/IMG_3889_1_eimi9z.jpg">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779641537/IMG_3889_1_eimi9z.jpg" alt="Bambai Meri Jaan photograph by Nihar Shahani" class="gallery-image w-full h-auto">
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="lightbox" class="fixed inset-0 z-[10000] hidden bg-black/95 p-6 md:p-16 items-center justify-center">
+        <button id="lightbox-close" type="button" aria-label="Close image" class="absolute top-5 right-5 text-white hover:text-amber-500 transition-colors text-3xl">&times;</button>
+        <button id="lightbox-prev" type="button" aria-label="Previous image" class="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white backdrop-blur-md transition-all z-[10001]">&lsaquo;</button>
+        <button id="lightbox-next" type="button" aria-label="Next image" class="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white backdrop-blur-md transition-all z-[10001]">&rsaquo;</button>
+        <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain shadow-2xl">
+    </div>
+
+    <script>
+        document.querySelectorAll('img').forEach((img) => {
+            if (img.complete) img.classList.add('loaded');
+            else img.addEventListener('load', () => img.classList.add('loaded'));
+        });
+
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        if (cursorDot && cursorOutline) {
+            let outlineX = 0;
+            let outlineY = 0;
+            let targetX = 0;
+            let targetY = 0;
+
+            window.addEventListener('mousemove', (event) => {
+                targetX = event.clientX;
+                targetY = event.clientY;
+                cursorDot.style.opacity = '1';
+                cursorOutline.style.opacity = '1';
+                cursorDot.style.transform = `translate(${targetX}px, ${targetY}px) translate(-50%, -50%)`;
+            });
+
+            const renderCursor = () => {
+                outlineX += (targetX - outlineX) * 0.18;
+                outlineY += (targetY - outlineY) * 0.18;
+                cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
+                requestAnimationFrame(renderCursor);
+            };
+            renderCursor();
+
+            document.addEventListener('mouseleave', () => {
+                cursorDot.style.opacity = '0';
+                cursorOutline.style.opacity = '0';
+            });
+
+            document.querySelectorAll('.gallery-card').forEach((item) => {
+                item.addEventListener('mouseenter', () => {
+                    cursorOutline.classList.add('hover-lens');
+                    cursorDot.style.opacity = '0';
+                });
+                item.addEventListener('mouseleave', () => {
+                    cursorOutline.classList.remove('hover-lens');
+                    cursorDot.style.opacity = '1';
+                });
+            });
+
+            document.querySelectorAll('a, button').forEach((item) => {
+                item.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-link'));
+                item.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-link'));
+            });
+        }
+
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const galleryItems = Array.from(document.querySelectorAll('[data-full]'));
+        let currentIndex = 0;
+
+        const updateLightboxImage = (index) => {
+            currentIndex = (index + galleryItems.length) % galleryItems.length;
+            lightboxImg.src = galleryItems[currentIndex].dataset.full;
+        };
+
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                updateLightboxImage(index);
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.classList.add('overflow-hidden');
+                document.body.classList.add('lightbox-active');
+            });
+        });
+
+        const closeLightbox = () => {
+            lightbox.classList.add('hidden');
+            lightbox.classList.remove('flex');
+            lightboxImg.src = '';
+            document.body.classList.remove('overflow-hidden');
+            document.body.classList.remove('lightbox-active');
+        };
+
+        document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+        document.getElementById('lightbox-prev').addEventListener('click', (event) => {
+            event.stopPropagation();
+            updateLightboxImage(currentIndex - 1);
+        });
+        document.getElementById('lightbox-next').addEventListener('click', (event) => {
+            event.stopPropagation();
+            updateLightboxImage(currentIndex + 1);
+        });
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !lightbox.classList.contains('hidden')) closeLightbox();
+            if (event.key === 'ArrowLeft' && !lightbox.classList.contains('hidden')) updateLightboxImage(currentIndex - 1);
+            if (event.key === 'ArrowRight' && !lightbox.classList.contains('hidden')) updateLightboxImage(currentIndex + 1);
+        });
+    </script>
+</body>
+</html>
