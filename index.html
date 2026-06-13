@@ -41,6 +41,11 @@
             background-color: rgba(255, 255, 255, 0.15); backdrop-filter: blur(6px);
             border: 1px solid rgba(255, 255, 255, 0.8); mix-blend-mode: normal;
         }
+        .cursor-outline.hover-action {
+            width: 48px; height: 48px;
+            background-color: rgba(255, 255, 255, 0.08); backdrop-filter: blur(4px);
+            border-color: rgba(255, 255, 255, 0.75);
+        }
 
         /* Lightbox Specific Cursor */
         .lightbox-active .cursor-outline { display: none; }
@@ -419,6 +424,7 @@
         imageTriggers.forEach(trigger => {
             trigger.addEventListener('mouseenter', () => {
                 cursorOutline.classList.add('hover-lens');
+                cursorOutline.classList.remove('hover-action');
                 gsap.to(cursorDot, { opacity: 0, duration: 0.2 });
             });
             trigger.addEventListener('mouseleave', () => {
@@ -427,10 +433,22 @@
             });
         });
 
-        const allLinks = document.querySelectorAll('.hover-target, a, button, select, input, textarea');
-        allLinks.forEach(link => {
-            link.addEventListener('mouseenter', () => { gsap.to(cursorOutline, { scale: 1.4, duration: 0.3 }); });
-            link.addEventListener('mouseleave', () => { gsap.to(cursorOutline, { scale: 1, duration: 0.3 }); });
+        const interactiveTargets = document.querySelectorAll('.hover-target, a, button, select, input, textarea, [onclick], [role="button"]');
+        interactiveTargets.forEach(target => {
+            target.addEventListener('mouseenter', () => {
+                if (!cursorOutline.classList.contains('hover-lens')) {
+                    cursorOutline.classList.add('hover-action');
+                }
+                gsap.to(cursorOutline, { scale: 1.12, duration: 0.25 });
+            });
+            target.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('hover-action');
+                gsap.to(cursorOutline, { scale: 1, duration: 0.25 });
+            });
+            target.addEventListener('mousedown', () => {
+                gsap.to(cursorOutline, { scale: 0.78, duration: 0.12, yoyo: true, repeat: 1 });
+                gsap.to(cursorDot, { scale: 1.8, duration: 0.12, yoyo: true, repeat: 1 });
+            });
         });
 
         // --- Interactive Text Logic ---
