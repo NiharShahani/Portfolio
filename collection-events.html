@@ -6,6 +6,9 @@
     <title>Events | Nihar Shahani</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP for Optimized Cursor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,22 +18,33 @@
         .font-serif { font-family: 'Playfair Display', serif; }
         .font-sans { font-family: 'Inter', sans-serif; }
         @media (min-width: 768px) { body { cursor: none; } }
+        
+        /* Standardized Cursor CSS */
         .cursor-dot, .cursor-outline {
             position: fixed; top: 0; left: 0; pointer-events: none; z-index: 20000;
-            opacity: 0; transform: translate(-50%, -50%);
-            transition: opacity 0.3s ease, width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+            opacity: 0; 
         }
-        .cursor-dot { width: 6px; height: 6px; background: white; border-radius: 999px; }
-        .cursor-outline { width: 32px; height: 32px; border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 999px; }
+        .cursor-dot { 
+            width: 6px; height: 6px; background-color: white; border-radius: 50%; 
+        }
+        .cursor-outline { 
+            width: 32px; height: 32px; border: 1px solid rgba(255, 255, 255, 0.6); border-radius: 50%; 
+            transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+        }
         .cursor-outline.hover-lens {
-            width: 80px; height: 80px;
+            width: 80px !important; height: 80px !important;
             background-color: rgba(255, 255, 255, 0.15); backdrop-filter: blur(6px);
-            border-color: rgba(255, 255, 255, 0.85);
+            border-color: rgba(255, 255, 255, 0.85); mix-blend-mode: normal;
         }
-        .cursor-outline.hover-link { width: 46px; height: 46px; }
+        .cursor-outline.hover-link { 
+            width: 46px !important; height: 46px !important; 
+        }
+
         img { opacity: 0; transition: opacity 0.5s ease; }
         img.loaded { opacity: 1; }
-        .gallery-image { transition: transform 0.7s ease; }
+        .gallery-item { margin-bottom: 2rem; }
+        .gallery-card { cursor: none; }
+        .gallery-image { display: block; transition: transform 0.7s ease; }
         .gallery-card:hover .gallery-image { transform: scale(1.015); }
         ::-webkit-scrollbar { width: 0; background: transparent; }
     </style>
@@ -53,7 +67,7 @@
     <main>
         <section class="min-h-[88vh] px-6 pt-36 pb-20 flex items-end relative overflow-hidden border-b border-neutral-900">
             <div class="absolute inset-0 -z-10 opacity-35">
-                <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779831890/DSC02091_1_iqbihd.jpg" alt="" class="w-full h-full object-cover">
+                <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779831890/DSC02091_1_iqbihd.jpg" alt="" class="w-full h-full object-cover" loading="eager" fetchpriority="high" decoding="async">
                 <div class="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/70 to-[#0a0a0a]/20"></div>
             </div>
             <div class="max-w-7xl mx-auto w-full">
@@ -74,64 +88,140 @@
                 </div>
 
                 <div class="columns-1 md:columns-2 lg:columns-3 gap-8 space-y-8">
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1779831890/DSC02091_1_iqbihd.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779831890/DSC02091_1_iqbihd.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1779475283/DSC02814_zatqkd.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779475283/DSC02814_zatqkd.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1779475411/DSC02663_tyy1bf.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779475411/DSC02663_tyy1bf.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780649534/DSC02826_osugdx.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780649534/DSC02826_osugdx.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780649871/DSC02852_11zon_kysvg7.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780649871/DSC02852_11zon_kysvg7.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650404/ZIKR_GIF_1_1_bjtbfl.gif">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650404/ZIKR_GIF_1_1_bjtbfl.gif" alt="Events film moment by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650441/DSC02576_1_gn3268.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650441/DSC02576_1_gn3268.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650443/DSC02609_zghnyu.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650443/DSC02609_zghnyu.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650445/DSC02588_fqy5om.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650445/DSC02588_fqy5om.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650549/DSC02533_zkpnpz.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650549/DSC02533_zkpnpz.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650550/DSC02545_1_sm5793.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650550/DSC02545_1_sm5793.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650551/DSC02687_1_fvrof9.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650551/DSC02687_1_fvrof9.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650551/DSC02518_qyzpeu.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650551/DSC02518_qyzpeu.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650555/DSC02538_fi0rkr.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650555/DSC02538_fi0rkr.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650555/DSC02511_gas3wf.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650555/DSC02511_gas3wf.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650556/DSC02544_3_nwhjpj.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650556/DSC02544_3_nwhjpj.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650556/DSC02677_hccos0.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650556/DSC02677_hccos0.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650558/DSC02462_araxt8.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650558/DSC02462_araxt8.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                    <button type="button" class="gallery-card break-inside-avoid group text-left overflow-hidden bg-neutral-900 w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650558/DSC02504_j2vvv3.jpg">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650558/DSC02504_j2vvv3.jpg" alt="Events photograph by Nihar Shahani" class="gallery-image w-full h-auto">
-                    </button>
-                </div>
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779831890/DSC02091_1_iqbihd.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779831890/DSC02091_1_iqbihd.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779475283/DSC02814_zatqkd.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779475283/DSC02814_zatqkd.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779475411/DSC02663_tyy1bf.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779475411/DSC02663_tyy1bf.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780649534/DSC02826_osugdx.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780649534/DSC02826_osugdx.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780649871/DSC02852_11zon_kysvg7.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780649871/DSC02852_11zon_kysvg7.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <!-- FIX: Removed f_auto,q_auto to force the raw GIF format -->
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650404/ZIKR_GIF_1_1_bjtbfl.gif" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650404/ZIKR_GIF_1_1_bjtbfl.gif" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650441/DSC02576_1_gn3268.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650441/DSC02576_1_gn3268.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650443/DSC02609_zghnyu.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650443/DSC02609_zghnyu.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650445/DSC02588_fqy5om.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650445/DSC02588_fqy5om.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650549/DSC02533_zkpnpz.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650549/DSC02533_zkpnpz.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650550/DSC02545_1_sm5793.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650550/DSC02545_1_sm5793.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650551/DSC02687_1_fvrof9.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650551/DSC02687_1_fvrof9.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650551/DSC02518_qyzpeu.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650551/DSC02518_qyzpeu.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650555/DSC02538_fi0rkr.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650555/DSC02538_fi0rkr.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650555/DSC02511_gas3wf.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650555/DSC02511_gas3wf.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650556/DSC02544_3_nwhjpj.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650556/DSC02544_3_nwhjpj.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650556/DSC02677_hccos0.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650556/DSC02677_hccos0.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650558/DSC02462_araxt8.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650558/DSC02462_araxt8.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650558/DSC02504_j2vvv3.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650558/DSC02504_j2vvv3.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <!-- FIX: Added autoplay and loop to the video so it doesn't render as an empty space -->
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/video/upload/v1785041438/ZIKR_Draft_11_qgkcua.mp4" data-type="video">
+                            <video src="https://res.cloudinary.com/dei9qrskn/video/upload/v1785041438/ZIKR_Draft_11_qgkcua.mp4" class="gallery-image w-full h-auto" autoplay loop muted playsinline></video>
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1785178988/DSC03090_1_cviioc.jpg" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1785178988/DSC03090_1_cviioc.jpg" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                    
+                    
+                    <div class="gallery-item break-inside-avoid relative overflow-hidden bg-neutral-900 w-full block">
+                        <button type="button" class="gallery-card group text-left w-full block" data-full="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1785179137/DSC03114_1_cixsu1.png" data-type="image">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1785179137/DSC03114_1_cixsu1.png" alt="Events work by Nihar Shahani" class="gallery-image w-full h-auto" loading="lazy" decoding="async">
+                        </button>
+                    </div>                
+                </div>            
             </div>
         </section>
     </main>
@@ -141,6 +231,7 @@
         <button id="lightbox-prev" type="button" aria-label="Previous image" class="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white backdrop-blur-md transition-all z-[10001]">&lsaquo;</button>
         <button id="lightbox-next" type="button" aria-label="Next image" class="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 border border-white/30 text-white backdrop-blur-md transition-all z-[10001]">&rsaquo;</button>
         <img id="lightbox-img" src="" alt="" class="max-w-full max-h-full object-contain shadow-2xl">
+        <video id="lightbox-video" src="" class="hidden max-w-full max-h-full object-contain shadow-2xl" controls playsinline></video>
     </div>
 
     <script>
@@ -151,45 +242,33 @@
 
         const cursorDot = document.querySelector('.cursor-dot');
         const cursorOutline = document.querySelector('.cursor-outline');
-        if (cursorDot && cursorOutline) {
-            let outlineX = 0;
-            let outlineY = 0;
-            let targetX = 0;
-            let targetY = 0;
-
-            window.addEventListener('mousemove', (event) => {
-                targetX = event.clientX;
-                targetY = event.clientY;
-                cursorDot.style.opacity = '1';
-                cursorOutline.style.opacity = '1';
-                cursorDot.style.transform = `translate(${targetX}px, ${targetY}px) translate(-50%, -50%)`;
+        
+        if (cursorDot && cursorOutline && typeof gsap !== 'undefined') {
+            gsap.set('.cursor-dot, .cursor-outline', { xPercent: -50, yPercent: -50 });
+            
+            window.addEventListener('mousemove', (e) => {
+                gsap.to([cursorDot, cursorOutline], { opacity: 1, duration: 0.3 });
+                gsap.to(cursorDot, { x: e.clientX, y: e.clientY, duration: 0.1 });
+                gsap.to(cursorOutline, { x: e.clientX, y: e.clientY, duration: 0.2 });
             });
-
-            const renderCursor = () => {
-                outlineX += (targetX - outlineX) * 0.18;
-                outlineY += (targetY - outlineY) * 0.18;
-                cursorOutline.style.transform = `translate(${outlineX}px, ${outlineY}px) translate(-50%, -50%)`;
-                requestAnimationFrame(renderCursor);
-            };
-            renderCursor();
-
+            
             document.addEventListener('mouseleave', () => {
-                cursorDot.style.opacity = '0';
-                cursorOutline.style.opacity = '0';
+                gsap.to([cursorDot, cursorOutline], { opacity: 0, duration: 0.3 });
             });
 
             document.querySelectorAll('.gallery-card').forEach((item) => {
                 item.addEventListener('mouseenter', () => {
                     cursorOutline.classList.add('hover-lens');
-                    cursorDot.style.opacity = '0';
+                    cursorOutline.classList.remove('hover-link');
+                    gsap.to(cursorDot, { opacity: 0, duration: 0.2 });
                 });
                 item.addEventListener('mouseleave', () => {
                     cursorOutline.classList.remove('hover-lens');
-                    cursorDot.style.opacity = '1';
+                    gsap.to(cursorDot, { opacity: 1, duration: 0.2 });
                 });
             });
 
-            document.querySelectorAll('a, button').forEach((item) => {
+            document.querySelectorAll('a, button:not(.gallery-card)').forEach((item) => {
                 item.addEventListener('mouseenter', () => cursorOutline.classList.add('hover-link'));
                 item.addEventListener('mouseleave', () => cursorOutline.classList.remove('hover-link'));
             });
@@ -197,12 +276,32 @@
 
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxVideo = document.getElementById('lightbox-video');
         const galleryItems = Array.from(document.querySelectorAll('[data-full]'));
         let currentIndex = 0;
 
         const updateLightboxImage = (index) => {
             currentIndex = (index + galleryItems.length) % galleryItems.length;
-            lightboxImg.src = galleryItems[currentIndex].dataset.full;
+            const currentItem = galleryItems[currentIndex];
+            const isVideo = currentItem.dataset.type === 'video';
+
+            if (isVideo) {
+                lightboxImg.classList.add('hidden');
+                lightboxImg.src = '';
+                lightboxVideo.pause();
+                lightboxVideo.src = '';
+                lightboxVideo.classList.add('hidden');
+                lightboxVideo.classList.remove('hidden');
+                lightboxVideo.src = currentItem.dataset.full;
+                lightboxVideo.load();
+                lightboxVideo.play();
+            } else {
+                lightboxVideo.pause();
+                lightboxVideo.classList.add('hidden');
+                lightboxVideo.src = '';
+                lightboxImg.classList.remove('hidden');
+                lightboxImg.src = currentItem.dataset.full;
+            }
         };
 
         galleryItems.forEach((item, index) => {
@@ -219,6 +318,9 @@
             lightbox.classList.add('hidden');
             lightbox.classList.remove('flex');
             lightboxImg.src = '';
+            lightboxVideo.pause();
+            lightboxVideo.src = '';
+            lightboxVideo.classList.add('hidden');
             document.body.classList.remove('overflow-hidden');
             document.body.classList.remove('lightbox-active');
         };
