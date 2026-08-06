@@ -118,7 +118,7 @@
         </div>
         
         <div class="absolute right-0 top-0 w-full md:w-[65%] h-full opacity-30 md:opacity-50 overflow-hidden -z-10 bg-neutral-900">
-            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779475411/DSC02663_tyy1bf.jpg" class="hero-img w-full h-full object-cover object-center scale-110 select-none">
+            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779475411/DSC02663_tyy1bf.jpg" class="hero-img w-full h-full object-cover object-center scale-110 select-none" loading="eager" fetchpriority="high" decoding="async">
         </div>
     </section>
 
@@ -136,53 +136,59 @@
         </div>
     </section>
 
-    <!-- HORIZONTAL STRIPE: THE THREE COLLECTIONS -->
-    <section id="collections" class="horizontal-scroll-section relative bg-[#0e0e0e] overflow-hidden border-t border-b border-neutral-900">
-        <div class="horizontal-scroll-container flex items-center h-screen w-[340vw] md:w-[220vw]">
-            
-            <!-- Intro Panel -->
-            <div class="panel w-screen md:w-[40vw] h-full flex flex-col justify-center pl-6 pr-6 md:pl-24 md:pr-12 shrink-0 bg-[#0a0a0a]">
-                <div class="max-w-xl space-y-4">
-                    <h2 class="text-4xl md:text-7xl font-serif text-white">Collections</h2>
-                    <p class="text-neutral-400 text-sm font-light leading-relaxed max-w-sm mt-4">
-                        Curated perspectives across three unique disciplines. Scroll horizontally to explore the series.
-                    </p>
+    <!-- COLLECTIONS: EDITORIAL GALLERY -->
+    <section id="collections" class="relative bg-[#0e0e0e] border-t border-b border-neutral-900 px-6 py-28 md:py-36">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-20 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8 reveal-item">
+                <div>
+                    <span class="text-[10px] tracking-[0.3em] uppercase text-neutral-500 block mb-5">Collections</span>
+                    <h2 class="text-4xl md:text-7xl font-serif text-white leading-none">Three ways<br><span class="italic text-neutral-400">of seeing.</span></h2>
                 </div>
+                <p class="text-neutral-400 text-sm font-light leading-relaxed max-w-sm">
+                    Curated perspectives across three unique disciplines. Choose a series to enter the work.
+                </p>
             </div>
 
-            <!-- Collection 1: Nature -->
-            <div class="panel collection-strip w-[80vw] md:w-[60vw] h-full flex flex-col justify-center px-4 md:px-8 shrink-0">
-                <a href="collection-nature.html" class="block w-full group cursor-none overflow-hidden aspect-[16/10] bg-neutral-900 shadow-2xl hover-target">
-                    <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779479111/IMG_5403_2_nydl4r.jpg" alt="Nature collection" class="w-full h-full object-cover cover-hover-color image-hover-trigger">
-                </a>
-                <div class="mt-6 flex justify-between text-[10px] uppercase tracking-widest text-neutral-500">
-                    <span class="text-white">Nature</span>
-                    <a href="collection-nature.html" class="hover-target hover:text-amber-500 transition-colors">Wildlife & Environment</a>
-                </div>
-            </div>
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10">
+                <article class="md:col-span-7 reveal-item">
+                    <a href="collection-nature.html" class="block group cursor-none overflow-hidden bg-neutral-900 shadow-2xl hover-target">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779479111/IMG_5403_2_nydl4r.jpg" alt="Nature collection" class="w-full h-auto cover-hover-color image-hover-trigger">
+                    </a>
+                    <div class="mt-6 flex items-end justify-between gap-4 border-t border-neutral-800 pt-5">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">01</span>
+                            <h3 class="font-serif text-3xl text-white">Nature</h3>
+                        </div>
+                        <a href="collection-nature.html" class="hover-target text-[10px] uppercase tracking-[0.25em] text-neutral-500 hover:text-amber-500 transition-colors">Wildlife & Environment</a>
+                    </div>
+                </article>
 
-            <!-- Collection 2: Bambai Meri Jaan -->
-            <div class="panel collection-strip w-[80vw] md:w-[60vw] h-full flex flex-col justify-center px-4 md:px-8 shrink-0">
-                <a href="collection-bambai-meri-jaan.html" class="block w-full group cursor-none overflow-hidden aspect-[16/10] bg-neutral-900 shadow-2xl hover-target">
-                    <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779641537/IMG_3889_1_eimi9z.jpg" alt="Bambai Meri Jaan collection" class="w-full h-full object-cover cover-hover-color image-hover-trigger">
-                </a>
-                <div class="mt-6 flex justify-between text-[10px] uppercase tracking-widest text-neutral-500">
-                    <span class="text-white">Bambai Meri Jaan</span>
-                    <a href="collection-bambai-meri-jaan.html" class="hover-target hover:text-amber-500 transition-colors">Streets & Portraits</a>
-                </div>
-            </div>
+                <article class="md:col-span-5 md:pt-24 reveal-item">
+                    <a href="collection-bambai-meri-jaan.html" class="block group cursor-none overflow-hidden bg-neutral-900 shadow-2xl hover-target">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779641537/IMG_3889_1_eimi9z.jpg" alt="Bambai Meri Jaan collection" class="w-full h-auto cover-hover-color image-hover-trigger">
+                    </a>
+                    <div class="mt-6 flex items-end justify-between gap-4 border-t border-neutral-800 pt-5">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">02</span>
+                            <h3 class="font-serif text-3xl text-white">Bambai Meri Jaan</h3>
+                        </div>
+                        <a href="collection-bambai-meri-jaan.html" class="hover-target text-[10px] uppercase tracking-[0.25em] text-neutral-500 hover:text-amber-500 transition-colors">Streets & Portraits</a>
+                    </div>
+                </article>
 
-            <!-- Collection 3: Events -->
-            <div class="panel collection-strip w-[80vw] md:w-[60vw] h-full flex flex-col justify-center px-4 md:px-8 shrink-0">
-                <a href="collection-events.html" class="block w-full group cursor-none overflow-hidden aspect-[16/10] bg-neutral-900 shadow-2xl hover-target">
-                    <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779831890/DSC02091_1_iqbihd.jpg" alt="Events collection" class="w-full h-full object-cover cover-hover-color image-hover-trigger">
-                </a>
-                <div class="mt-6 flex justify-between text-[10px] uppercase tracking-widest text-neutral-500">
-                    <span class="text-white">Events</span>
-                    <a href="collection-events.html" class="hover-target hover:text-amber-500 transition-colors">Weddings & Artists</a>
-                </div>
+                <article class="md:col-span-12 reveal-item">
+                    <a href="collection-events.html" class="block group cursor-none overflow-hidden bg-neutral-900 shadow-2xl hover-target">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779831890/DSC02091_1_iqbihd.jpg" alt="Events collection" class="w-full h-auto cover-hover-color image-hover-trigger">
+                    </a>
+                    <div class="mt-6 flex items-end justify-between gap-4 border-t border-neutral-800 pt-5">
+                        <div>
+                            <span class="block text-[10px] uppercase tracking-[0.3em] text-neutral-500 mb-2">03</span>
+                            <h3 class="font-serif text-3xl text-white">Events</h3>
+                        </div>
+                        <a href="collection-events.html" class="hover-target text-[10px] uppercase tracking-[0.25em] text-neutral-500 hover:text-amber-500 transition-colors">Weddings & Artists</a>
+                    </div>
+                </article>
             </div>
-
         </div>
     </section>
 
@@ -199,54 +205,113 @@
             <!-- CSS Columns for Masonry effect -->
             <div class="columns-1 md:columns-2 gap-8 space-y-8">
                 
-                <!-- Image Item -->
+                <!-- Image Item 1 (Bambai Flag) -->
                 <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
                     <div class="overflow-hidden bg-neutral-900 shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&q=85&w=1200" class="w-full h-auto img-hover-color hover:scale-100">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779641537/IMG_3889_1_eimi9z.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
                     </div>
-                    <!-- Hover Label -->
                     <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Mehfil (Zikr)</span>
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Bambai Meri Jaan</span>
                     </div>
                 </div>
 
-                <!-- Image Item -->
+                <!-- Image Item 2 (Events Zikr) -->
                 <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
                     <div class="overflow-hidden bg-neutral-900 shadow-xl">
-                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779479111/IMG_5403_2_nydl4r.jpg" class="w-full h-auto img-hover-color hover:scale-100">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779475283/DSC02814_zatqkd.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
+                    </div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Zikr Live</span>
+                    </div>
+                </div>
+
+                <!-- Image Item 3 (Nature) -->
+                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
+                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1781289650/IMG_2819_1_ggwpz4.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
+                    </div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Wild Canopy</span>
+                    </div>
+                </div>
+
+                <!-- Image Item 4 (Bambai New) -->
+                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
+                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1785511153/DSC04237_1_ujrzy1.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
+                    </div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Street Portrait</span>
+                    </div>
+                </div>
+
+                <!-- Image Item 5 (Events Zikr GIF) -->
+                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
+                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1780650404/ZIKR_GIF_1_1_bjtbfl.gif" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
+                    </div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Energy</span>
+                    </div>
+                </div>
+
+                <!-- Image Item 6 (Bambai New Protest) -->
+                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
+                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1785511157/DSC04257_nnmlnf.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
+                    </div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Protest</span>
+                    </div>
+                </div>
+
+                <!-- Image Item 7 (Nature Study) -->
+                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
+                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1781289662/IMG_4194_1_htl1ii.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
+                    </div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Environment Study</span>
+                    </div>
+                </div>
+
+                <!-- Image Item 8 (Events Performance) -->
+                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
+                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1780650550/DSC02545_1_sm5793.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
+                    </div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Performance</span>
+                    </div>
+                </div>
+
+                <!-- Image Item 9 (Nature Texture) -->
+                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
+                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1781289662/IMG_5296_1_qklarq.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
                     </div>
                     <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Nature Focus</span>
                     </div>
                 </div>
 
-                <!-- Image Item -->
+                <!-- Image Item 10 (Events Artist) -->
                 <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
                     <div class="overflow-hidden bg-neutral-900 shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1518134346374-184f9d21cea2?auto=format&fit=crop&q=85&w=1200" class="w-full h-auto img-hover-color hover:scale-100">
-                    </div>
-                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">South Bombay</span>
-                    </div>
-                </div>
-
-                <!-- Image Item -->
-                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
-                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&q=85&w=1200" class="w-full h-auto img-hover-color hover:scale-100">
-                    </div>
-                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Monsoon Canopy</span>
-                    </div>
-                </div>
-
-                <!-- Image Item -->
-                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
-                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
-                        <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&q=85&w=1200" class="w-full h-auto img-hover-color hover:scale-100">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1785179137/DSC03114_1_cixsu1.png" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
                     </div>
                     <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
                         <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">Artist Series</span>
+                    </div>
+                </div>
+
+                <!-- Image Item 11 (Bambai New Addition) -->
+                <div class="break-inside-avoid relative group cursor-pointer lightbox-trigger reveal-item">
+                    <div class="overflow-hidden bg-neutral-900 shadow-xl">
+                        <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1785511156/DSC04251_kydspd.jpg" class="w-full h-auto img-hover-color hover:scale-100" loading="lazy" decoding="async">
+                    </div>
+                    <div class="absolute bottom-4 left-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                        <span class="bg-black/80 backdrop-blur-sm text-white text-[9px] uppercase tracking-widest px-3 py-1">City Movement</span>
                     </div>
                 </div>
 
@@ -292,7 +357,7 @@
                 <div class="flip-card-inner relative w-full h-full transition-transform duration-700 transform-style-3d shadow-2xl">
                     <div class="flip-card-front absolute w-full h-full backface-hidden bg-[#111] p-2 flex flex-col border border-neutral-800 rounded-sm shadow-xl">
                         <div class="w-full h-full overflow-hidden rounded-sm relative">
-                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/v1779544154/I_do_not_know_who_i_am_cq8naj.png" alt="Nihar Shahani" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 transition duration-500">
+                            <img src="https://res.cloudinary.com/dei9qrskn/image/upload/f_auto,q_auto,w_1600/v1779544154/I_do_not_know_who_i_am_cq8naj.png" alt="Nihar Shahani" class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 transition duration-500" loading="lazy" decoding="async">
                             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end justify-center pb-6">
                                 <span class="font-hand text-white text-2xl tracking-wider opacity-90 group-hover:opacity-100 transition-opacity">Tap to reveal</span>
                             </div>
@@ -540,19 +605,6 @@
         window.addEventListener('click', triggerEntry);
         window.addEventListener('keydown', triggerEntry);
 
-        // --- Horizontal Scroll (Collections) ---
-        const scrollContainer = document.querySelector('.horizontal-scroll-container');
-        const panels = gsap.utils.toArray(".panel");
-        gsap.to(panels, {
-            x: () => -(scrollContainer.scrollWidth - window.innerWidth),
-            ease: "none",
-            scrollTrigger: {
-                trigger: ".horizontal-scroll-section", pin: true, scrub: 1, 
-                start: "top top", end: () => "+=" + (scrollContainer.scrollWidth - window.innerWidth),
-                invalidateOnRefresh: true
-            }
-        });
-
         // --- Content Reveals ---
         gsap.utils.toArray('.reveal-item').forEach(item => {
             gsap.fromTo(item, { y: 40, opacity: 0 }, { scrollTrigger: { trigger: item, start: "top 85%" }, y: 0, opacity: 1, duration: 1.2, ease: "power3.out" });
@@ -570,13 +622,10 @@
             const targetId = link.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
-                // If it's the horizontal pinned section, we calculate the end point correctly based on scrollWidth
-                const isPinned = targetId === '#collections';
-                
                 ScrollTrigger.create({
                     trigger: targetSection,
                     start: "top center",
-                    end: isPinned ? () => "+=" + (document.querySelector('.horizontal-scroll-container').scrollWidth) : "bottom center",
+                    end: "bottom center",
                     onEnter: () => updateNav(link),
                     onEnterBack: () => updateNav(link)
                 });
